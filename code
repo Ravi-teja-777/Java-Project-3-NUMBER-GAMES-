@@ -1,0 +1,85 @@
+import java.util.*;
+
+abstract class A{
+    public abstract void gus_num();
+    public abstract void gus_evod();
+    
+}
+
+class B extends A{
+    public void gus_num(){
+        Scanner i = new Scanner(System.in);
+        Random n = new Random();
+        int num = n.nextInt(100);
+        System.out.print("1.Even\n2.Odd\nPlease Selesct one above option : ");
+        int sel = i.nextInt();
+        if(sel==1){
+            if(num%2==0){
+                System.out.println("Congrats you guess the correct answer!");
+                System.out.println(num+ " is an even number");
+            }else{
+                System.out.println("You Guess The Wrong Answer!");
+                System.out.println(num+" is an Even number");
+            }
+            
+        }else if(sel==2){
+                if(num%2!=0){
+                    System.out.println("Congrats ! You Guess The Correct one");
+                    System.out.println(num+" is an Odd number");
+                }else{
+                    System.out.println("You Guess The Wrong Answer!");
+                    System.out.println(num+" is an Even number");
+                }
+            }else{
+                System.out.println("Please Select The Given Options Only : ");
+            }
+        
+    }
+    
+    public void gus_evod(){
+        Scanner i = new Scanner(System.in);
+        Random n = new Random();
+        int num = n.nextInt(100);
+        System.out.print("Chance-1:\nGuess a number in between 1 to 100 : ");
+        int num1 = i.nextInt();
+        if(num1==num){
+            System.out.println(num+" is the correct answer!");
+        }else{
+            System.out.println(num1+" is wrong answer!");
+            System.out.print("Chance-2:\nGuess a number In between 1 to 100 : ");
+            int num2 =i.nextInt();
+            if(num2==num){
+                System.out.print(num+" is correct answer!");
+            }else{
+                System.out.println(num2+" is wrong answer!");
+                System.out.print("Last Chance-3:\nGuess a number in between 1 to 100 : ");
+                int num3 =i.nextInt();
+                if(num3==num){
+                    System.out.println(num+" is correct answer!");
+                    
+                }else{
+                    System.out.println(num+" is the correct answer!");
+                    System.out.println("BETTER LUCK NEXT TIME!");
+                }
+            }
+        }
+    }
+}
+
+
+public class Main extends B{
+    public static void main(String[] args){
+        Scanner i = new Scanner(System.in);
+        System.out.println("INSTRUCTIONS:\n--------Even or Odd--------\n1.The random numbers are generated in between 1 to 100.\n2.In this game you select either even or odd.\n3.if you select the even ,if it match the random number then your answer is correct.if it is doesn't match then it is wrong answer vise versa\n--------Guess A Number--------\n1.In this game the random numbers generated in between 1 to 100.\n2.you have three chances to guess the exact number.\n3.if you guess the exact number in three chances you will win.\n4.if you failed to guess the number you will lose.\n\n ");
+        System.out.print("1.Even or Odd\n2.Guess A Number\nWhich Game Do You Want To Play : ");
+        Main obj = new Main();
+        int sel = i.nextInt();
+        if(sel==2){
+            obj.gus_evod();
+        }else if(sel==1){
+            obj.gus_num();
+        }else{
+            System.out.println("Please select the above options only : ");
+        }
+    }
+}
